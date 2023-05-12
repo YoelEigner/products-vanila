@@ -141,7 +141,7 @@ const mapProducts = () => {
             addButton.textContent = 'Edit';
 
             var delButton = document.createElement('button');
-            delButton.classList.add('add-btn', 'btn', 'rounded', 'products-buttons', 'delete-btn', 'btn-danger', 'delBtn');
+            delButton.classList.add('add-btn', 'btn', 'rounded', 'products-buttons', 'btn-danger', 'delBtn', 'center');
             delButton.title = 'delBtn';
             delButton.textContent = 'Delete';
 
