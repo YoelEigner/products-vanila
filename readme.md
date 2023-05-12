@@ -1,6 +1,9 @@
 # Products Vanilla
 This is a simple website that displays a list of products. The website is built using pure HTML and JavaScript.
 
+[Sample live site](http://ec2-54-159-17-173.compute-1.amazonaws.com/products-vanila/html/login.html)
+
+
 ## Running the website locally
 To run the website locally, follow these steps:
 
