@@ -14,7 +14,7 @@ const Login = async (username, password) => {
         }
         const jsonResponse = await response.json();
         sessionStorage.setItem('user', JSON.stringify(jsonResponse))
-        window.location.href = 'main.html';
+        window.location.href = 'index.html';
 
     } catch (error) {
         alert('Incorrect username or password')
