@@ -15,26 +15,21 @@
 </head>
 
 <body>
-    <div class="col">
-        <h3 class="white-text text-center">Login</h3>
-        <form class="center-form" id="login-form">
-            <div class="mb-3">
-                <label for="username" class="form-label white-text">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username" title="username" />
-            </div>
-            <div class="login-form">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+            <form id="login-form">
                 <div class="mb-3">
-                    <label for="password" class="form-label white-text">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" title="password" />
+                    <input type="text" class="form-control" id="username" placeholder="Username" title="username">
                 </div>
-            </div>
-            <button class="btn btn-secondary" type="submit" id="login">Login</button>
-        </form>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password" title="password">
+                </div>
+                <button class="btn btn-secondary d-block mx-auto" type="submit" id="login">Login</button>
+            </form>
+        </div>
     </div>
-
-
-    <script src="../js/login.js">
-    </script>
+    <script src="../js/login.js"></script>
 </body>
+
 
 </html>

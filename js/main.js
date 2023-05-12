@@ -258,6 +258,7 @@ logout.addEventListener('click', function () {
 });
 
 window.addEventListener('load', () => {
+    container.style.display = 'none';
     GetProducts();
 });
 
