@@ -1,7 +1,12 @@
 const REACT_APP_AWS_API_URL = 'http://ec2-54-159-17-173.compute-1.amazonaws.com:3000/api'
 const REACT_APP_AWS_AUTH_API_URL = 'http://ec2-54-159-17-173.compute-1.amazonaws.com:4000/api'
 
-
+/**
+ * Logs in the user with the given username and password.
+ * @param {string} username - The username to use for authentication.
+ * @param {string} password - The password to use for authentication.
+ * @throws {Error} - If the network response is not ok.
+ */
 const Login = async (username, password) => {
     try {
         const response = await fetch(`${REACT_APP_AWS_AUTH_API_URL}/auth/login`, {

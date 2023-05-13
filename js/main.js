@@ -6,7 +6,16 @@ if (!user) {
     sessionStorage.clear()
     window.location.href = 'login.html';
 }
-
+/**
+ * Saves a new product item to the server.
+ * @async
+ * @param {Object} data - An object containing details about the new product item.
+ * @param {string} data.name - The name of the product item.
+ * @param {string} data.description - A brief description of the product item.
+ * @param {number} data.price - The price of the product item.
+ * @param {number} data.quantity - The quantity of the product item.
+ * @throws {Error} - Throws an error if the network response is not ok.
+ */
 const SaveNewItem = async (data) => {
     const product = {
         name: data.name, description: data.description, price: parseInt(data.price), quantity: parseInt(data.quantity)
@@ -26,7 +35,11 @@ const SaveNewItem = async (data) => {
 
 
 
-
+/**
+ * Fetches all product items from the server and reloads the cards with the updated data.
+ * @async
+ * @throws {Error} - Throws an error if the network response is not ok.
+ */
 const GetProducts = async () => {
     const response = await fetch(`${REACT_APP_AWS_API_URL}/products`, {
         method: 'GET',
@@ -40,6 +53,11 @@ const GetProducts = async () => {
     reloadCards(jsonResponse)
 }
 
+/**
+ * Reloads the product cards on the page with updated data.
+ * @param {Object[]} jsonResponse - An array of product items.
+ * @throws {Error} - Throws an error if the network response is not ok.
+ */
 const reloadCards = (jsonResponse) => {
     if (sessionStorage.getItem('products')) {
         const element = document.getElementById("product-container");
@@ -49,6 +67,18 @@ const reloadCards = (jsonResponse) => {
     mapProducts()
 }
 
+
+/**
+ * Updates an existing product item on the server and reloads the cards with the updated data.
+ * @async
+ * @param {Object} product - An object containing details about the product item to update.
+ * @param {number} product.ID - The unique identifier of the product item to update.
+ * @param {string} product.name - The updated name of the product item.
+ * @param {string} product.description - The updated description of the product item.
+ * @param {number} product.price - The updated price of the product item.
+ * @param {number} product.quantity - The updated quantity of the product item.
+ * @throws {Error} - Throws an error if the network response is not ok.
+ */
 const UpdateItems = async (product) => {
     let obj = {
         "ID": product.ID,
@@ -72,6 +102,12 @@ const UpdateItems = async (product) => {
     reloadCards(products)
 }
 
+/**
+ * Deletes an existing product item from the server and reloads the cards with the updated data.
+ * @async
+ * @param {number} id - The unique identifier of the product item to delete.
+ * @throws {Error} - Throws an error if the network response is not ok.
+ */
 const deleteProduct = async (id) => {
     const response = await fetch(`${REACT_APP_AWS_API_URL}/products/${id}`, {
         method: 'DELETE',
@@ -86,7 +122,11 @@ const deleteProduct = async (id) => {
     products.splice(index, 1);
     reloadCards(products)
 }
-//map the cards
+
+/**
+ * Maps the product data and generates the cards on the page.
+ * @returns {void}
+ */
 const mapProducts = () => {
     var products = JSON.parse(sessionStorage.getItem('products'));
     var productContainer = document.getElementById('product-container');
